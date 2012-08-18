@@ -1,0 +1,15 @@
+*~
+*.aux
+*.bbl
+*.blg
+*.dvi
+*.idx
+*.ilg
+*.ind
+*.lof
+*.log
+*.tiff
+*.toc
+*.pdf
+*.ps
+.DS_Store

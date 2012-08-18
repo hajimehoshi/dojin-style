@@ -1,0 +1,97 @@
+\usepackage{okumacro}
+\usepackage{okuverb}
+
+% フォント
+\usepackage[deluxe]{otf}
+\usepackage{txfonts}
+
+% ノンブルのスタイル
+\usepackage{fancyhdr}
+
+% texttt でも太字を使う
+\DeclareFontShape{OT1}{cmtt}{bx}{n}{<5><6><7><8><9><10><10.95><12><14.4><17.28><20.74><24.88>cmttb10}{}
+
+% 見出しフォントをbfseriesに変更
+\makeatletter
+\def\headfont{\sffamily\bfseries}
+\makeatother
+
+% 上下マージン
+\setlength{\topmargin}{20mm}
+\addtolength{\topmargin}{-1in}
+\setlength{\headheight}{\baselineskip}
+\setlength{\headsep}{2\baselineskip}
+\setlength{\textheight}{204.6mm}
+\addtolength{\textheight}{-2\baselineskip}
+\addtolength{\textheight}{-\baselineskip}
+\setlength{\footskip}{0mm}
+
+% 左右マージン
+\setlength{\oddsidemargin}{22mm}
+\addtolength{\oddsidemargin}{-1in}
+\setlength{\evensidemargin}{33.5mm}
+\addtolength{\evensidemargin}{-1in}
+\setlength{\textwidth}{126.5mm}
+
+% chapter 再定義 (右寄せ、余白調整)
+\makeatletter
+\def\@makechapterhead#1{
+  \vspace*{0\Cvs}% 欧文は50pt
+  {\parindent \z@ \raggedleft \normalfont
+    \ifnum \c@secnumdepth >\m@ne
+      \if@mainmatter
+        \huge\headfont \@chapapp\thechapter\@chappos
+        \par\nobreak
+        \vskip \Cvs % 欧文は20pt
+      \fi
+    \fi
+    \interlinepenalty\@M
+    \Huge \headfont #1\par\nobreak
+    \vskip 5\Cvs}} % 欧文は40pt                                                                                                     
+\def\@makeschapterhead#1{%
+  \vspace*{0\Cvs}% 欧文は50pt
+  {\parindent \z@ \raggedleft
+    \normalfont
+    \interlinepenalty\@M
+    \Huge \headfont #1\par\nobreak
+    \vskip 5\Cvs}} % 欧文は40pt
+\makeatother
+
+% \chaptermark, \sectionmark が fancyhdr によって再定義されてしまうので、 jsbook のものに戻す
+\makeatletter
+\def\ps@fancy{%
+\def\chaptermark##1{\markboth{%
+  \ifnum \c@secnumdepth >\m@ne
+    \if@mainmatter
+      \@chapapp\thechapter\@chappos\hskip1zw
+    \fi
+  \fi
+  ##1}{}}
+\def\sectionmark##1{\markright{%
+  \ifnum \c@secnumdepth >\z@ \thesection \hskip1zw\fi
+  ##1}}
+\ps@@fancy % なぜか必要
+}
+\makeatother
+
+% ノンブル
+\pagestyle{fancy}
+\setlength{\headwidth}{\textwidth}
+\fancyhf{}
+%\lhead[\textsf{\footnotesize{\thepage\hspace{2zw}\textcolor{gray}{\leftmark}}}]{}
+%\rhead[]{\textsf{\footnotesize{\textcolor{gray}{\rightmark}\hspace{2zw}\thepage}}}
+\lhead[\textsf{\textbf{\thepage}\hspace{2.5zw}\leftmark}]{}
+\rhead[]{\textsf{\rightmark\hspace{2.5zw}\textbf{\thepage}}}
+\lfoot[]{}
+\cfoot{}
+\rfoot[]{}
+\renewcommand{\headrulewidth}{0pt}
+
+% chapter などでも fancy スタイルのノンブルを適用する
+\makeatletter
+\renewcommand\chapter{\if@openright\cleardoublepage\else\clearpage\fi
+  \thispagestyle{fancy}%
+  \global\@topnum\z@
+  \if@english \@afterindentfalse \else \@afterindenttrue \fi
+  \secdef\@chapter\@schapter}
+\makeatother
