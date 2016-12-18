@@ -9,8 +9,11 @@
 
 %\usepackage{luatexja-otf}
 \usepackage[no-math]{luatexja-fontspec}
-\setmainjfont[BoldFont=YuMincho Bold]{YuMincho Medium}
+%\setmainjfont[BoldFont=YuMincho Bold]{YuMincho Medium}
+\setmainjfont[BoldFont=YuGothic Bold]{YuGothic Medium}
 \setsansjfont[BoldFont=YuGothic Bold]{YuGothic Medium}
+
+\renewcommand{\familydefault}{\sfdefault} % 強制サンセリフ
 
 % ノンブルのスタイル
 \usepackage{fancyhdr}
@@ -34,13 +37,13 @@
 \setlength{\footskip}{0mm}
 
 % 左右マージン
-%\setlength{\oddsidemargin}{16.6mm}
-\setlength{\oddsidemargin}{26.8mm}
+\setlength{\oddsidemargin}{16.6mm}
+%\setlength{\oddsidemargin}{26.8mm}
 \addtolength{\oddsidemargin}{-1in}
-%\setlength{\evensidemargin}{26.8mm}
 \setlength{\evensidemargin}{16.6mm}
 \addtolength{\evensidemargin}{-1in}
-\setlength{\textwidth}{138.6mm}
+%\setlength{\textwidth}{138.6mm}
+\setlength{\textwidth}{148.8mm}
 
 % chapter 再定義 (右寄せ、余白調整)
 \makeatletter
