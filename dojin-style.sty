@@ -1,9 +1,16 @@
-\usepackage{okumacro}
-\usepackage{okuverb}
+\usepackage{comment}
 
 % フォント
-\usepackage[deluxe]{otf}
-\usepackage{txfonts}
+\usepackage[no-math]{fontspec}
+\setmainfont{Times New Roman}
+\usepackage{helvet}
+
+\usepackage{newtxtext,newtxmath}
+
+%\usepackage{luatexja-otf}
+\usepackage[no-math]{luatexja-fontspec}
+\setmainjfont[BoldFont=YuMincho Bold]{YuMincho Medium}
+\setsansjfont[BoldFont=YuGothic Bold]{YuGothic Medium}
 
 % ノンブルのスタイル
 \usepackage{fancyhdr}
@@ -49,7 +56,8 @@
     \fi
     \interlinepenalty\@M
     \Huge \headfont #1\par\nobreak
-    \vskip 5\Cvs}} % 欧文は40pt                                                                                                     
+    \vskip 5\Cvs}} % 欧文は40pt
+
 \def\@makeschapterhead#1{%
   \vspace*{0\Cvs}% 欧文は50pt
   {\parindent \z@ \raggedleft
@@ -65,12 +73,12 @@
 \def\chaptermark##1{\markboth{%
   \ifnum \c@secnumdepth >\m@ne
     \if@mainmatter
-      \@chapapp\thechapter\@chappos\hskip1zw
+      \@chapapp\thechapter\@chappos\hskip1\zw
     \fi
   \fi
   ##1}{}}
 \def\sectionmark##1{\markright{%
-  \ifnum \c@secnumdepth >\z@ \thesection \hskip1zw\fi
+  \ifnum \c@secnumdepth >\z@ \thesection \hskip1\zw\fi
   ##1}}
 \ps@@fancy % なぜか必要
 }
@@ -82,8 +90,8 @@
 \fancyhf{}
 %\lhead[\textsf{\footnotesize{\thepage\hspace{2zw}\textcolor{gray}{\leftmark}}}]{}
 %\rhead[]{\textsf{\footnotesize{\textcolor{gray}{\rightmark}\hspace{2zw}\thepage}}}
-\lhead[\textsf{\textbf{\thepage}\hspace{2.5zw}\leftmark}]{}
-\rhead[]{\textsf{\rightmark\hspace{2.5zw}\textbf{\thepage}}}
+\lhead[\textsf{\textbf{\thepage}\hspace{2.5\zw}\leftmark}]{}
+\rhead[]{\textsf{\rightmark\hspace{2.5\zw}\textbf{\thepage}}}
 \lfoot[]{}
 \cfoot{}
 \rfoot[]{}

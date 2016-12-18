@@ -1,14 +1,9 @@
 TARG=example
 
-SRC       = $(shell find . -name "*.tex") ../dojin-style.sty
-TEX_FLAGS = -halt-on-error -kanji=utf8
+SRC = $(shell find . -name "*.tex") ../dojin-style.sty
 
-$(TARG).pdf: $(TARG).dvi
-	dvipdfmx -p jisb5 -o $@ $<
-
-$(TARG).dvi: $(SRC)
-	platex $(TEX_FLAGS) $(TARG).tex
-	platex $(TEX_FLAGS) $(TARG).tex
+$(TARG).pdf: $(SRC)
+	lualatex --halt-on-error $<
 
 clean:
 	rm -rf *.aux *.bbl *.blg *.dvi *.idx *.ilg *.ind *.lof *.log *.toc *.pdf
