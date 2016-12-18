@@ -1,15 +1,17 @@
-Mac OS X 環境でヒラギノを使うために以下の作業を行いましょう:
+macOS 環境で Yu Gothic を使うために以下の作業を行いましょう:
 
-updmap-setup-kanji hiragino
-sudo mkdir -p /usr/local/texlive/texmf-local/fonts/opentype/hiragino/
-cd /usr/local/texlive/texmf-local/fonts/opentype/hiragino/
-sudo ln -fs "/Library/Fonts/ヒラギノ明朝 Pro W3.otf" ./HiraMinPro-W3.otf 
-sudo ln -fs "/Library/Fonts/ヒラギノ明朝 Pro W6.otf" ./HiraMinPro-W6.otf
-sudo ln -fs "/Library/Fonts/ヒラギノ丸ゴ Pro W4.otf" ./HiraMaruPro-W4.otf
-sudo ln -fs "/Library/Fonts/ヒラギノ角ゴ Pro W3.otf" ./HiraKakuPro-W3.otf
-sudo ln -fs "/Library/Fonts/ヒラギノ角ゴ Pro W6.otf" ./HiraKakuPro-W6.otf
-sudo ln -fs "/Library/Fonts/ヒラギノ角ゴ Std W8.otf" ./HiraKakuStd-W8.otf
+```sh
+sudo mkdir -p /usr/local/texlive/texmf-local/fonts/opentype/yu-osx
+cd /usr/local/texlive/texmf-local/fonts/opentype/yu-osx
+sudo ln -fs "/Library/Fonts/Yu Gothic Bold.otf" YuGo-Bold.otf
+sudo ln -fs "/Library/Fonts/Yu Gothic Medium.otf" YuGo-Medium.otf
+sudo ln -fs "/Library/Fonts/Yu Mincho Demibold.otf" YuMin-Demibold.otf
+sudo ln -fs "/Library/Fonts/Yu Mincho Medium.otf" YuMin-Medium.otf
 sudo mktexlsr
-updmap-sys --setoption kanjiEmbed hiragino
+sudo updmap-sys --setoption kanjiEmbed yu-osx
+```
 
-参考: http://oku.edu.mie-u.ac.jp/~okumura/texwiki/?Mac#iec67b0a
+参考:
+
+* http://tandoori.hatenablog.com/entry/20131117/1384696037
+* http://doratex.hatenablog.jp/entry/20161202/1480665692
