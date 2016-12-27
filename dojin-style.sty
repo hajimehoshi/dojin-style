@@ -4,12 +4,12 @@
 \usepackage[no-math]{fontspec}
 \setmainfont{Times New Roman}
 \usepackage{helvet}
+\usepackage{courier}
 
 \usepackage{newtxtext,newtxmath}
 
 %\usepackage{luatexja-otf}
 \usepackage[no-math]{luatexja-fontspec}
-%\setmainjfont[BoldFont=YuMincho Bold]{YuMincho Medium}
 \setmainjfont[Scale=0.9,BoldFont=YuGothic Bold]{YuGothic Medium}
 \setsansjfont[Scale=0.9,BoldFont=YuGothic Bold]{YuGothic Medium}
 
@@ -109,3 +109,12 @@
 
 % footnote
 \renewcommand{\thefootnote}{\arabic{footnote}}
+
+% code
+%\usepackage{listings}
+% http://tex.stackexchange.com/questions/66949/command-nobreakspace-unavailable-when-switching-to-t1-encoding-under-xelatex
+%\DeclareTextCommandDefault{\nobreakspace}{\leavevmode\nobreak\ }
+%\lstset{basicstyle=\small\ttfamily,breaklines=true,xleftmargin=.25in}
+\usepackage{fancyvrb}
+% zi uses Inconsolata
+\DefineVerbatimEnvironment{verbatim}{Verbatim}{fontfamily=zi4,xleftmargin=.25in}
